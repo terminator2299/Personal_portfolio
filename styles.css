@@ -67,8 +67,6 @@
   .skills::after,
   .services::before,
   .services::after,
-  .contact::before,
-  .contact::after,
   .portfolio::before,
   .portfolio::after {
     display: none !important;

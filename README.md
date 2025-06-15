@@ -7,7 +7,6 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript to s
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Modern UI**: Clean and professional design with smooth animations
 - **Interactive Elements**: Dynamic content with hover effects and transitions
-- **Contact Form**: Functional contact form with form validation
 - **Project Showcase**: Beautiful project cards with hover effects
 - **Skills Section**: Visual representation of technical skills
 - **Education & Experience**: Timeline-based layout for professional journey
@@ -39,7 +38,6 @@ The website is fully responsive and optimized for:
 3. **Education & Experience**: Professional journey timeline
 4. **Skills**: Technical skills with progress bars
 5. **Projects**: Portfolio of work with project cards
-6. **Contact**: Contact form and information
 
 ## 🎨 Design Features
 

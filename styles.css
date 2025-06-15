@@ -78,8 +78,7 @@
   .about,
   .skills,
   .services,
-  .portfolio,
-  .contact {
+  .portfolio {
     background: radial-gradient(#e1efff, white);
     position: relative;
     z-index: 1;
@@ -88,8 +87,7 @@
   .about::before,
   .skills::before,
   .services::before,
-  .portfolio::before,
-  .contact::before {
+  .portfolio::before {
     display: none;
   }
   
@@ -109,15 +107,13 @@
   .services,
   .skills,
   .projects,
-  .contact,
   footer {
     font-family: "Poppins", sans-serif;
   }
   
   .about .about-content,
   .services .serv-content,
-  .skills .skills-content,
-  .contact .contact-content {
+  .skills .skills-content {
     display: flex;
     flex-wrap: wrap;
     align-items: center;

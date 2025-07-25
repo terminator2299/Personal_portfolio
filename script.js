@@ -87,4 +87,88 @@ $(document).ready(function () {
         }
       }
     });
+
+    // Scroll-reveal animation for sections and cards
+    // Adds 'visible' class when elements enter the viewport
+
+    function revealOnScroll() {
+      const revealElements = [
+        ...document.querySelectorAll('section'),
+        ...document.querySelectorAll('.project-card'),
+        ...document.querySelectorAll('.testimonial-card')
+      ];
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => observer.observe(el));
+      } else {
+        // Fallback: show all if IntersectionObserver not supported
+        revealElements.forEach(el => el.classList.add('visible'));
+      }
+    }
+
+    // Fade-in animation for sections and project cards
+    function fadeInOnScroll() {
+      const fadeEls = [
+        ...document.querySelectorAll('.main-content > section'),
+        ...document.querySelectorAll('.project-card-pro')
+      ];
+      fadeEls.forEach(el => el.classList.add('fade-in'));
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        fadeEls.forEach(el => observer.observe(el));
+      } else {
+        fadeEls.forEach(el => el.classList.add('visible'));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      revealOnScroll();
+      fadeInOnScroll();
+
+      // Smooth scroll for sidebar nav links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              window.scrollTo({
+                top: target.offsetTop - 24,
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+
+      // Floating Contact Button (FAB) scrolls to contact
+      const fab = document.querySelector('.fab-contact');
+      if (fab) {
+        fab.addEventListener('click', function() {
+          const contact = document.querySelector('#contact');
+          if (contact) {
+            window.scrollTo({
+              top: contact.offsetTop - 24,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
   });
